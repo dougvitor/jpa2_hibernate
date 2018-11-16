@@ -19,13 +19,13 @@ public class TesteJPQL {
         EntityManager manager = new JPAUtil().getEntityManager();
 
         Conta conta = new Conta();
-        conta.setId(1);
+        conta.setId(2);
 
         Query query = manager
                 .createQuery("select m from Movimentacao m where m.conta=:pConta and m.tipoMovimentacao = :pTipo order by m.valor desc");
 
         query.setParameter("pConta", conta);
-        query.setParameter("pTipo", TipoMovimentacao.ENTRADA);
+        query.setParameter("pTipo", TipoMovimentacao.SAIDA);
 
         List<Movimentacao> movimentacoes = query.getResultList();
 

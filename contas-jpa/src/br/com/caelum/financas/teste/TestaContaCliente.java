@@ -48,25 +48,21 @@ public class TestaContaCliente {
         EntityManager em = new JPAUtil().getEntityManager();
         
         Cliente douglas = new Cliente();
-        douglas.setNome("Jaqueline");
+        douglas.setNome("Douglas Vitor");
         douglas.setEndereco("Rua Itauna, 90");
-        douglas.setProfissao("Secretaria");
+        douglas.setProfissao("Analista Desenvolvedor");
         
         Conta contaItau = new Conta();
-        contaItau.setTitular("Jack");
+        contaItau.setTitular("Douglas");
         contaItau.setBanco("Itau SA");
         contaItau.setAgencia("8597");
         contaItau.setNumero("099970");
-        
-        contaItau.setCliente(douglas);
         
         douglas.setConta(contaItau);
         
         em.getTransaction().begin();
         
         em.persist(douglas);
-        
-        em.persist(contaItau);
         
         em.getTransaction().commit();
         

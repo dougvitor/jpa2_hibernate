@@ -13,12 +13,20 @@ public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(nullable=false)
     private String titular;
+    
+    @Column(nullable=false)
     private String banco;
+    
+    @Column(nullable=false)
     private String agencia;
+    
+    @Column(nullable=false)
     private String numero;
-
-    @OneToOne
+    
+    @OneToOne(mappedBy="conta")
     @JoinColumn(unique=true)
     private Cliente cliente;
 
